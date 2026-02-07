@@ -308,7 +308,7 @@ function execute_operation() {
 
     # Call create_wrappers in case new bin files have been created
     # shellcheck disable=SC2064
-    trap "PATH=$PATH create_wrappers" EXIT QUIT TERM
+	trap 'PATH="$PATH" create_wrappers' EXIT QUIT TERM
     # shellcheck disable=SC2086
     $run_env "$BACKEND_COMMAND" "${BACKEND_ARGS}" $OPT_NO_COPY_FILES "${ARGS[@]}"
 }
